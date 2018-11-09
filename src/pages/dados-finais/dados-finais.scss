@@ -1,0 +1,29 @@
+page-dados-finais {
+    .image-container{
+        background-size:cover;
+        min-height: 200px; 
+    }
+    .thumb-img{
+        width: 150px;
+        height: 150px;
+    }
+    ion-content{
+        background: linear-gradient(#dddddd, #ffffff, #a0a0a0) !important;
+        
+ 
+       
+          
+         
+      }
+      #selecionaArq{
+        background:transparent !important;
+      }
+      ion-card-header{
+          text-align: center;
+          text-transform: uppercase;
+         
+      }
+      h6{
+          margin-left:20px;
+      }
+}

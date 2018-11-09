@@ -1,0 +1,62 @@
+
+
+<div id = 'boasvindas'>
+  <h1 style = 'color:#8c8a8a;'>Bem Vindo!</h1>
+  <h2><span class = 'b'>B</span><span class = 'u'>U</span><span class = 'r'>R</span><span class = 'e'>E</span><span class = 'a'>A</span><span class = 'u'>U</span></h2>
+</div>
+<form [formGroup]="form">
+  <ion-row>
+    <ion-col>
+      <ion-item class="input-custom">
+        <ion-label color="light" floating>E-mail</ion-label>
+        <ion-input type="email" name="email" formControlName="email" required ></ion-input>
+        
+      </ion-item>
+      <h6> {{messageError}}</h6>
+      <ion-item class="input-custom">
+        <ion-label color="light" floating>Senha </ion-label>
+        <ion-input type={{typeInputPassword}} name="password" formControlName="password"  required></ion-input>            
+      </ion-item>
+      <h6> {{messageErrorPassword}}</h6>
+      <button ion-button class="register-btn" block clear (click)="viewPassword()" id ='viewPassword'>
+          <ion-icon ios="ios-eye" md="md-eye" *ngIf = '!passwordVisible'>            
+          </ion-icon> <ion-icon ios="ios-eye-off" md="md-eye-off" *ngIf = 'passwordVisible'></ion-icon> 
+          <span style = 'margin-left:7px'>Mostrar Senha</span>
+      </button>
+     
+     
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col class="signup-col">
+      
+     <!-- Social Login --> 
+     <div id = 'divbutton'>
+        <button ion-button class="submit-btn" full (click)="signIn()" class = 'buttonlogin'>Entrar</button>
+      </div>
+  <ion-grid>
+      <ion-row class= 'rowMediaSocial' *ngIf = '!typePageRegister'>
+        <ion-col col-3 class = 'icons1'>
+        <ion-icon ios="logo-facebook" md="logo-facebook" (click) = 'facebookLogin()'></ion-icon>
+        </ion-col>
+        <ion-col col-3 class = 'icons2'>
+        <ion-icon ios="logo-github" md="logo-github" (click)= 'githubLogin()'></ion-icon>
+        </ion-col>
+        <ion-col col-3 class = 'icons3'>
+        <ion-icon ios="logo-google" md="logo-google"></ion-icon>
+        </ion-col>
+        <ion-col col-3 class = 'icons4'>
+        <ion-icon ios="ios-contact-outline" md="md-contact" (click) = 'signInAnonymous()'></ion-icon>
+        </ion-col>
+      </ion-row>
+    </ion-grid>
+      <button ion-button class="register-btn" block clear (click)="goSignUp()">
+        Não tem uma conta ainda? Registre-se
+      </button>
+      <button ion-button class="register-btn" block clear (click)="presentPrompt()">
+        Perdeu sua senha? clique aqui!
+      </button>
+ 
+    </ion-col>
+  </ion-row>
+</form>

@@ -1,0 +1,75 @@
+page-home {
+    .buttonsClick{
+        padding:100px;
+        border: solid 20px #262525  ;
+        border-radius:50%;
+        display: inline-block;
+        text-align: center;
+        background-image:#686868 !important;
+        
+       
+    }
+  
+    .swiper-pagination-progress .swiper-pagination-progressbar {
+        background:#262525;
+      }
+      ion-content{
+       
+        background-image: url('../assets/imgs/predio_6.png');
+        background-size: 100% 200px;
+        background-position: bottom;
+        background-repeat: no-repeat;
+          
+         
+      }
+      .slide-zoom{
+          margin-bottom:100px;
+
+      }
+      .swiper-pagination.swiper-pagination-clickable.swiper-pagination-bullets{
+        margin-bottom:120px;
+      }
+      li {
+        width: 2em;
+        height: 2em;
+        text-align: center;
+        line-height: 2em;
+        border-radius: 1em;
+        background: dodgerblue;
+        margin: 0 1em;
+        display: inline-block;
+        color: white;
+        position: relative;
+      }
+      
+      li::before{
+        content: '';
+        position: absolute;
+        top: .9em;
+        left: -4em;
+        width: 4em;
+        height: .2em;
+        background: dodgerblue;
+        z-index: -1;
+      }
+      
+      ul{
+        padding-left:2px;
+      }
+      li:first-child::before {
+        display: none;
+      }
+      
+      .active {
+        background: dodgerblue;
+      }
+      
+      .active ~ li {
+        background: lightblue;
+      }
+      
+      .active ~ li::before {
+        background: lightblue;
+      }
+    
+}

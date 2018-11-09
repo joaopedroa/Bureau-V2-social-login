@@ -1,0 +1,52 @@
+
+<div id = 'cadastro'>  
+
+        <h1 style = 'color:#8c8a8a;'>Cadastre-se</h1>
+    
+</div>
+
+<form [formGroup]="form" novalidate>
+  <ion-row>
+    <ion-col>
+
+        <ion-item class="input-custom">
+            <ion-label color="light" floating>Nome</ion-label>
+            <ion-input type="text" name="password" formControlName="displayName"  required></ion-input>       
+          </ion-item>
+
+        <h6> {{messageErrorName}}</h6>
+
+      <ion-item class="input-custom">
+        <ion-label color="light" floating>E-mail</ion-label>
+        <ion-input type="email" name="email" formControlName="email" required></ion-input>        
+      </ion-item>
+
+      <h6> {{messageError}}</h6>
+
+      <ion-item class="input-custom">
+        <ion-label color="light" floating>Senha</ion-label>
+        <ion-input type={{typeInputPassword}} name="password" formControlName="password"  required></ion-input>       
+      </ion-item>
+      <h6> {{messageErrorPassword}}</h6>
+      <button ion-button class="register-btn" block clear (click)="viewPassword()" id ='viewPassword'>
+          <ion-icon ios="ios-eye" md="md-eye" *ngIf = '!passwordVisible'>            
+          </ion-icon> <ion-icon ios="ios-eye-off" md="md-eye-off" *ngIf = 'passwordVisible'></ion-icon> 
+          <span style = 'margin-left:7px'>Mostrar Senha</span>
+      </button>
+     
+
+    </ion-col>
+  </ion-row>
+  <ion-row>
+    <ion-col class="signup-col">
+      <div id = 'divbutton'>
+        <button ion-button class="submit-btn" full (click)="signUp()" class = 'buttonlogin'>Cadastrar</button>
+      </div>
+     
+      <button ion-button class="login-btn" block clear (click)="goSignIn()" id = 'goLogin'>
+        Já tem uma conta? Entre
+      </button>
+
+    </ion-col>
+  </ion-row>
+</form>

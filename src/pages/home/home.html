@@ -1,0 +1,49 @@
+<ion-header>
+  <ion-navbar color = 'primary'>
+    <button ion-button menuToggle>
+      <ion-icon name="menu"></ion-icon>
+    </button>
+    <ion-title  *ngIf="!afAuth.auth.currentUser.isAnonymous">Olá {{afAuth.auth.currentUser.displayName}}</ion-title>
+    <ion-title  *ngIf="afAuth.auth.currentUser.isAnonymous">Usuário Anônimo</ion-title>
+  </ion-navbar>
+</ion-header>
+
+
+<ion-content padding>
+  
+    <ion-slides pager spaceBetween="10"  pager = "true" *ngIf="validaFinal !== undefined && lenghtArray > 0 " >
+      
+      <ion-slide *ngFor = 'let item of itensBasicos | async; let i = index'  >
+      {{i.lenght}}
+          <ul *ngIf="nivel == 'base'" class = "{{item.dado}}">
+              <li *ngFor = 'let item of counter(arrayTotal[i]); let u = index' [ngClass]="{'active' : u == 0}" >{{u+1}}</li>
+            </ul>
+      
+          <ul *ngIf="nivel !== 'base' && i !== 0"  class = "{{item.dado}}">
+            <li *ngFor = 'let item of counter(arrayTotal[i]); let u = index' [ngClass]="{'active' : u == 0}" >{{u+1}}</li>
+          </ul>
+          <ul *ngIf="nivel !== 'base' && i === 0"  class = "{{item.dado}}">
+              <li *ngFor = 'let item of counter(arrayAntigo); let u = index' [ngClass]="{'active' : u ==positionSteps}">{{u+1}}</li>
+          </ul>
+       
+          <button  class = 'buttonsClick' (click) = 'entrarNivel(item.$key,item.dado)' >{{item.dado}}</button> 
+          
+        
+      </ion-slide>
+      
+    </ion-slides>
+  
+      <ion-card *ngIf="lenghtArray < 1">
+        <img src="assets/imgs/engenheiro.png" width="350px" height="350px"/>
+        <ion-card-content>
+          <ion-card-title>
+            Não possui dados.
+            </ion-card-title>
+          <p>
+            Não foi cadastrado dados para esse tópico.
+          </p>
+        </ion-card-content>
+      </ion-card>
+      
+    
+</ion-content>

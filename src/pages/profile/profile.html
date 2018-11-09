@@ -1,0 +1,50 @@
+<!--
+  Generated template for the ProfilePage page.
+
+  See http://ionicframework.com/docs/components/#navigation for more info on
+  Ionic pages and navigation.
+-->
+<ion-header>
+    <ion-navbar color = 'primary'>
+      <button ion-button menuToggle>
+        <ion-icon name="menu"></ion-icon>
+      </button>
+      <ion-title>Perfil</ion-title>
+    </ion-navbar>
+  </ion-header>
+
+
+<ion-content padding>
+  <ion-card>
+    <ion-card-header>
+      <h1> Página do Usuário</h1> <br>
+      <ion-fab (click) = 'uploadPhoto()'>
+        <button ion-fab color="primary"><ion-icon ios="ios-camera" md="md-camera"></ion-icon></button>
+      </ion-fab>
+      <img src = '{{avatar}}' width="200px" height="200px" imageViewer>
+      
+    </ion-card-header>
+  
+    <ion-list>
+      <button ion-item (click) = 'alertUpdateNome()'>
+        <ion-icon name="person" item-start></ion-icon>
+        <span *ngIf="!afAuth.auth.currentUser.isAnonymous">{{afAuth.auth.currentUser.displayName}}</span>
+        <span *ngIf="afAuth.auth.currentUser.isAnonymous">Usuário Anônimo</span>
+      </button>
+  
+      <button ion-item *ngIf = "!afAuth.auth.currentUser.isAnonymous">
+        <ion-icon name="at" item-start></ion-icon>
+        {{emailVerified}}
+      </button>
+  
+      <button ion-item *ngIf = "!afAuth.auth.currentUser.isAnonymous">
+        <ion-icon name="mail" item-start></ion-icon>
+        {{afAuth.auth.currentUser.email}}
+      </button>  
+  
+    </ion-list>
+  </ion-card>
+
+    
+
+</ion-content>
